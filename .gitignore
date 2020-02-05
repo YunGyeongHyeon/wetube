@@ -108,3 +108,7 @@ dist
 .vscode-test
 
 package-lock.json
+
+.env
+uploads
+videos
