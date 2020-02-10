@@ -4,7 +4,6 @@ import Video from '../models/Video'
 export const home = async (req, res) => {
   try {
     const videos = await Video.find({}).sort({ _id: -1 })
-    console.log(videos)
     res.render('home', { pageTitle: 'Home', videos })
   } catch (error) {
     console.log(error)
@@ -43,8 +42,6 @@ export const postUpload = async (req, res) => {
     title,
     description
   })
-  console.log(newVideo)
-
   res.redirect(routes.videoDetail(newVideo.id))
 }
 
@@ -66,6 +63,7 @@ export const getEditVideo = async (req, res) => {
     params: { id }
   } = req
   try {
+    console.log(id + '아이딩')
     const video = await Video.findById(id)
     res.render('editVideo', { pageTitle: `Edit ${video.title}`, video })
   } catch (error) {

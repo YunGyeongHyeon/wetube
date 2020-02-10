@@ -28,6 +28,15 @@
         li:not(:last-child) {
           margin-right: 15px;
         }
+        .userId {
+          background-color: white;
+          height: 20px;
+          color: black;
+          border-radius: 3px;
+          label {
+            vertical-align: middle;
+          }
+        }
       }
     }
     form {

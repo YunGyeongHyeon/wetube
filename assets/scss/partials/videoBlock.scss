@@ -1,0 +1,13 @@
+.videoBlock {
+  video {
+    width: 100%;
+    max-width: 350px;
+    height: 180px;
+    background-color: black;
+  }
+  .videoBlock__title {
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
+}
