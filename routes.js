@@ -4,6 +4,7 @@ const JOIN = '/join'
 const LOGIN = '/login'
 const LOGOUT = '/logout'
 const SEARCH = '/search'
+const ME = '/me'
 
 // User
 
@@ -20,6 +21,14 @@ const VIDEO_DETAIL = '/:id'
 const EDIT_VIDEO = '/:id/edit'
 const DELETE_VIDEO = '/:id/delete'
 
+//GitHub
+const GITHUB = '/auth/github'
+const GITHUB_CALLBACK = '/auth/github/callback'
+
+//Facebook
+const FB = '/auth/facebook'
+const FB_CALLBACK = '/auth/facebook/callback'
+
 const routes = {
   home: HOME,
   join: JOIN,
@@ -28,15 +37,15 @@ const routes = {
   search: SEARCH,
 
   users: USERS,
-  userDetail: USER_DETAIL,
-  editProfile: id => {
+  userDetail: id => {
     if (id) {
       console.log(id + '왜 안나와')
-      return `/users/edit-profile`
+      return `/users/${id}`
     } else {
-      return EDIT_PROFILE
+      return USER_DETAIL
     }
   },
+  editProfile: EDIT_PROFILE,
   changePassword: CHANGE_PASSWORD,
 
   videos: VIDEOS,
@@ -61,7 +70,12 @@ const routes = {
     } else {
       return DELETE_VIDEO
     }
-  }
+  },
+  github: GITHUB,
+  githubCallback: GITHUB_CALLBACK,
+  me: ME,
+  facebook: FB,
+  facebookCallback: FB_CALLBACK
 }
 
 export default routes
