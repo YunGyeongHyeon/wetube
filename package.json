@@ -56,7 +56,7 @@
     "build:server": "babel src --out-dir build",
     "copyAll": "xcopy .\\src\\static .\\build\\static\\ /s /y && xcopy .\\src\\views .\\build\\views\\ /s /y",
     "build": "npm run build:server && npm run build:assets && npm run copyAll",
-    "prebuild": "rm -rf  build",
+    "prebuild": "rd /s /q build",
     "tunnel": "ngrok http 4000",
     "start": "node build/init.js",
     "prestart": "npm run build"
