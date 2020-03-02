@@ -1,7 +1,0 @@
-extends layout/main
-
-block content
-   .form-container
-        .user-profile__header
-            img.avatar(src=loggedUser.avatarUrl, onerror=`this.src='${loggedUser.avatarUrl}'`)
-            h4.profile__username=user.email
