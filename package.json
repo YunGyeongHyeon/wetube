@@ -4,6 +4,7 @@
   "description": "Cloning Youtube wiht Vaniila and NodeJS",
   "main": "index.js",
   "author": "Yun",
+  "engines": { "node": "12.13.0" },
   "dependencies": {
     "@babel/polyfill": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
