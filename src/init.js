@@ -16,8 +16,9 @@ const PORT = process.env.PORT || 4000
 //   key: fs.readFileSync('./keys/private.pem'),
 //   cert: fs.readFileSync('./keys/public.pem')
 // }
-const handleListening = () =>
+const handleListening = () => {
   console.log(`★Listening on: http://lcalhost:${PORT}`)
+}
 
 app.listen(PORT, handleListening)
 
