@@ -30,6 +30,7 @@
     "fs": "0.0.1-security",
     "get-blob-duration": "^1.1.0",
     "helmet": "^3.21.2",
+    "heroku": "^7.39.0",
     "https": "^1.0.0",
     "i": "^0.3.6",
     "mongoose": "^5.8.11",
