@@ -14,7 +14,6 @@ import videoRouter from './routers/videoRouter'
 import globalRouter from './routers/globalRouter'
 import apiRouter from './routers/apiRouter'
 import routes from './routes'
-
 import './passport'
 
 const app = express()
