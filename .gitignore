@@ -110,6 +110,4 @@ dist
 package-lock.json
 
 .env
-uploads
 videos
-build
