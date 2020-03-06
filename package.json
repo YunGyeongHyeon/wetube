@@ -60,10 +60,10 @@
     "dev:assets": "cd src && cross-env WEBPACK_ENV=development webpack -w",
     "build:assets": "cd src && cross-env WEBPACK_ENV=production webpack",
     "build:server": "babel src --out-dir build",
-    "copyAll": "shx cp -R src/static build && shx cp -R src/views build",
+    "copyAll": " cp -R src/static build &&  cp -R src/views build",
     "build": "npm run build:server && npm run build:assets && npm run copyAll",
     "tunnel": "ngrok http 4000",
-    "prebuild": "shx rm -rf build",
+    "prebuild": " rm -rf build",
     "start": "node build/init.js",
     "prestart": "npm run build"
   },
