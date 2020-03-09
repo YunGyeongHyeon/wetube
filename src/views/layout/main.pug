@@ -7,6 +7,11 @@ html
     body
         if messages.error
             span=messages.error
+        else if messages.info
+            span=message.info
+        else if message.sucess
+            span=message.succes
+            
         include ../partials/header
         main
             block content

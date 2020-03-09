@@ -34,10 +34,15 @@ export const getLogin = (req, res) => {
 }
 export const postLogin = passport.authenticate('local', {
   failureRedirect: routes.login,
-  successRedirect: routes.home
+  successRedirect: routes.home,
+  successFlash: 'Welcome!!',
+  failureFlash: "Can't login, Check email and/or Password"
 })
 
-export const githubLogin = passport.authenticate('github')
+export const githubLogin = passport.authenticate('github', {
+  successFlash: 'Welcome!!',
+  failureFlash: "Can't login, Check email and/or Password"
+})
 
 export const githubLoginCallback = async (__, ___, profile, cb) => {
   const {
@@ -68,7 +73,10 @@ export const postGithubLogIn = (req, res) => {
   res.redirect(routes.home)
 }
 
-export const facebookLogin = passport.authenticate('facebook')
+export const facebookLogin = passport.authenticate('facebook', {
+  successFlash: 'Welcome!!',
+  failureFlash: "Can't login, Check email and/or Password"
+})
 
 export const facebookLoginCallback = async (_, __, profile, cb) => {
   const {
@@ -98,7 +106,7 @@ export const postFacebookLogin = (req, res) => {
 }
 
 export const logout = (req, res) => {
-  // To Do: Process Log Out
+  req.flash('info', 'Logged out, see you later')
   req.logout()
   res.redirect(routes.home)
 }
@@ -116,8 +124,10 @@ export const postEditProfile = async (req, res) => {
       email,
       avatarUrl: file ? file.location : req.user.avatarUrl
     })
+    req.flash('sucess', 'Profile update')
     res.redirect(routes.me)
   } catch (error) {
+    req.flash('error', "Can't update profile")
     res.render('editProfile', { pageTitle: 'Edit Profile' })
   }
 }
@@ -134,6 +144,7 @@ export const userDetail = async (req, res) => {
     console.log(user)
     res.render('userDetail', { pageTitle: `Users Profile`, user })
   } catch (error) {
+    req.flash('error', 'User not found')
     res.redirect(routes.videoDetail)
   }
 }
@@ -148,6 +159,7 @@ export const postChangePassword = async (req, res) => {
   } = req
   try {
     if (newPassword !== newPassword1) {
+      req.flash('error', "PAssword don't  match")
       res.status(400)
       res.redirect(`/users${routes.changePassword}`)
       return
