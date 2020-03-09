@@ -11,6 +11,7 @@ export const postJoin = async (req, res, next) => {
     body: { name, email, password, password2 }
   } = req
   if (password !== password2) {
+    req.flash('error', "Password don't match!!")
     res.status(400)
     res.render('join', { pageTitle: 'Join' })
   } else {
@@ -40,7 +41,7 @@ export const githubLogin = passport.authenticate('github')
 
 export const githubLoginCallback = async (__, ___, profile, cb) => {
   const {
-    _json: { id, avatar_url, username, email }
+    _json: { id, avatar_url, name, email }
   } = profile
   try {
     const user = await User.findOne({ email })
