@@ -30,7 +30,8 @@ export const uploadAvatar = multerAvatar.single('avatar')
 export const localsMiddelware = (req, res, next) => {
   res.locals.siteName = 'WeTube'
   res.locals.routes = routes
-  res.locals.loggedUser = req.user || ''
+  console.log(req.params)
+  res.locals.loggedUser = req.user || req.username || ''
   next()
 }
 
