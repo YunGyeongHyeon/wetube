@@ -40,19 +40,21 @@ export const githubLogin = passport.authenticate('github')
 
 export const githubLoginCallback = async (__, ___, profile, cb) => {
   const {
-    _json: { id, avatar_url, name, email }
+    _json: { id, avatar_url, username, email }
   } = profile
-  console.log('깃허브 가입한 사람 이름  : ' + name)
+  console.log('깃허브 가입한 사람의 정보  : ' + profile)
+  console.log('깃허브 가입한 사람 이름  : ' + username)
   try {
     const user = await User.findOne({ email })
     if (user) {
       user.githubId = id
+      user.username
       user.save()
       return cb(null, user)
     }
     const newUser = await User.create({
       email,
-      name,
+      name: username,
       githubId: id,
       avatarUrl: avatar_url
     })
