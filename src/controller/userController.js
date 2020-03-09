@@ -42,7 +42,7 @@ export const githubLoginCallback = async (__, ___, profile, cb) => {
   const {
     _json: { id, avatar_url, name, email }
   } = profile
-  console.log(profile)
+  console.log('깃허브 가입한 사람 이름  : ' + name)
   try {
     const user = await User.findOne({ email })
     if (user) {
