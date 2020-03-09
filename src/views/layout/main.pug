@@ -7,7 +7,6 @@ html
         title #{pageTitle} | #{siteName}
         link(rel="stylesheet", href="/static/styles.css")
     body
-        span=JSON.stringify(message)
         if messages.error
             +message({
                 type:'error',
