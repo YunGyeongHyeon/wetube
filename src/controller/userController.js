@@ -124,7 +124,7 @@ export const postEditProfile = async (req, res) => {
       email,
       avatarUrl: file ? file.location : req.user.avatarUrl
     })
-    successFlash: 'Welcome!!'
+    req.flash('success', 'Profile update!')
     res.redirect(routes.me)
   } catch (error) {
     req.flash('error', "Can't update profile")
