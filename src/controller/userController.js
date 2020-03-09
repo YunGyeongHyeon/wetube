@@ -42,19 +42,18 @@ export const githubLoginCallback = async (__, ___, profile, cb) => {
   const {
     _json: { id, avatar_url, username, email }
   } = profile
-  console.log('깃허브 가입한 사람의 정보  : ' + profile._json)
-  console.log('깃허브 가입한 사람 이름  : ' + username)
   try {
     const user = await User.findOne({ email })
     if (user) {
       user.githubId = id
-      user.username
+      user.name
       user.save()
+      console.log('깃허브 가입한 사람의 정보  : ' + user)
       return cb(null, user)
     }
     const newUser = await User.create({
       email,
-      name: username,
+      name,
       githubId: id,
       avatarUrl: avatar_url
     })
