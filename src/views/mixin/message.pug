@@ -1,3 +1,3 @@
 mixin message(message={})
-    .flash-message__comtainer(class=messages.type)
+    .flash-message__comtainer(class=message.type, messages.type)
         span.flash-message__text=message.text
