@@ -1,3 +1,18 @@
+@keyframes flashAnimation {
+  0% {
+    transform: translateY(-70px);
+  }
+  5% {
+    transform: translateY(0px);
+  }
+  90% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-70px);
+  }
+}
+
 .flash-message__comtainer {
   position: fixed;
   top: 0;
@@ -5,6 +20,8 @@
   width: 100%;
   padding: 20px;
   z-index: 9;
+  text-align: center;
+  animation: flashAnimation 5s ease-in-out forwards;
   &.error {
     background-color: #f1c40f;
   }
