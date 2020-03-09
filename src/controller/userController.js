@@ -58,6 +58,7 @@ export const githubLoginCallback = async (__, ___, profile, cb) => {
     })
     return cb(null, newUser)
   } catch (error) {
+    console.log('callback Error!!!!!!!!!!!!!!!!')
     return cb(error)
   }
 }
